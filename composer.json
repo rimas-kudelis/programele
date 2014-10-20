@@ -1,4 +1,6 @@
 {
-    "php": ">=5.5",
-    "zendframework/zendframework": "*"
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "*"
+    }
 }

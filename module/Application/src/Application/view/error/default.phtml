@@ -1,0 +1,5 @@
+<?php echo $this->message; ?>
+
+<?php if (isset($this->exception)): ?>
+    <pre><?php echo $this->exception->getMessage(); ?></pre>
+<?php endif; ?>
