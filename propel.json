@@ -1,0 +1,39 @@
+{
+    "propel": {
+        "database": {
+            "connections": {
+                "tests": {
+                    "adapter": "mysql",
+                    "classname": "Propel\\Runtime\\Connection\\ConnectionWrapper",
+                    "dsn": "mysql:host=localhost;dbname=tests",
+                    "user": "root",
+                    "password": "root",
+                    "attributes": [],
+                    "settings": {
+                        "charset": "utf8",
+                        "queries": {
+                            "utf8": "SET NAMES utf8"
+                        }
+                    }
+                }
+            }
+        },
+        "runtime": {
+            "defaultConnection": "tests",
+            "connections": ["tests"]
+        },
+        "generator": {
+            "defaultConnection": "tests",
+            "connections": ["tests"]
+        },
+        "paths": {
+            "projectDir": "propel",
+            "schemaDir": "propel",
+            "outputDir": "propel/out",
+            "migrationDir": "propel/generated-migrations",
+            "phpDir": "module",
+            "phpConfDir": "propel/generated-conf",
+            "sqlDir": "propel/generated-sql"
+        }
+    }
+}

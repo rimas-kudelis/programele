@@ -1,6 +1,7 @@
 {
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "*"
+        "zendframework/zendframework": "*",
+        "propel/propel": "~2.0@dev"
     }
 }

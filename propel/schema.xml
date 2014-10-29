@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="tests" namespace="Tests\Model" defaultIdMethod="native">
+    <behavior name="auto_add_pk"/>
+
+    <table name="category" package="Tests.src.Tests.Model">
+        <column name="title" required="true" type="varchar" size="255"/>
+    </table>
+    <table name="question" package="Tests.src.Tests.Model">
+        <column name="label" required="true" type="longvarchar"/>
+        <column name="id_category" required="true" type="integer"/>
+        <foreign-key foreignTable="category" onDelete="cascade" onUpdate="cascade">
+            <reference local="id_category" foreign="id"/>
+        </foreign-key>
+    </table>
+    <table name="answer" package="Tests.src.Tests.Model">
+        <column name="label" required="true" type="longvarchar"/>
+        <column name="id_question" required="true" type="integer"/>
+        <foreign-key foreignTable="question" onDelete="cascade" onUpdate="cascade">
+            <reference local="id_question" foreign="id"/>
+        </foreign-key>
+    </table>
+</database>

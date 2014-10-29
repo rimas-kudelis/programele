@@ -2,3 +2,7 @@
 /vendor
 /config/autoload/local.php
 /composer.lock
+/propel/*
+!/propel/schema.xml
+/module/*/src/*/Model/Base/
+/module/*/src/*/Model/Map/
