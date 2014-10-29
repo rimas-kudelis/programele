@@ -92,13 +92,13 @@ class CategoryTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Title', 'Id', ),
-        self::TYPE_CAMELNAME     => array('title', 'id', ),
-        self::TYPE_COLNAME       => array(CategoryTableMap::COL_TITLE, CategoryTableMap::COL_ID, ),
-        self::TYPE_FIELDNAME     => array('title', 'id', ),
-        self::TYPE_NUM           => array(0, 1, )
-    );
+    protected static $fieldNames =  [
+        self::TYPE_PHPNAME       => ['Title', 'Id', ],
+        self::TYPE_CAMELNAME     => ['title', 'id', ],
+        self::TYPE_COLNAME       => [CategoryTableMap::COL_TITLE, CategoryTableMap::COL_ID, ],
+        self::TYPE_FIELDNAME     => ['title', 'id', ],
+        self::TYPE_NUM           => [0, 1, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
@@ -106,13 +106,13 @@ class CategoryTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Title' => 0, 'Id' => 1, ),
-        self::TYPE_CAMELNAME     => array('title' => 0, 'id' => 1, ),
-        self::TYPE_COLNAME       => array(CategoryTableMap::COL_TITLE => 0, CategoryTableMap::COL_ID => 1, ),
-        self::TYPE_FIELDNAME     => array('title' => 0, 'id' => 1, ),
-        self::TYPE_NUM           => array(0, 1, )
-    );
+    protected static $fieldKeys =  [
+        self::TYPE_PHPNAME       => ['Title' => 0, 'Id' => 1, ],
+        self::TYPE_CAMELNAME     => ['title' => 0, 'id' => 1, ],
+        self::TYPE_COLNAME       => [CategoryTableMap::COL_TITLE => 0, CategoryTableMap::COL_ID => 1, ],
+        self::TYPE_FIELDNAME     => ['title' => 0, 'id' => 1, ],
+        self::TYPE_NUM           => [0, 1, ]
+    ];
 
     /**
      * Initialize the table attributes and columns
@@ -140,7 +140,7 @@ class CategoryTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Question', '\\Tests\\Model\\Question', RelationMap::ONE_TO_MANY, array('id' => 'id_category', ), 'CASCADE', 'CASCADE', 'Questions');
+        $this->addRelation('Question', '\\Tests\\Model\\Question', RelationMap::ONE_TO_MANY, ['id' => 'id_category', ], 'CASCADE', 'CASCADE', 'Questions');
     } // buildRelations()
 
     /**
@@ -151,9 +151,9 @@ class CategoryTableMap extends TableMap
      */
     public function getBehaviors()
     {
-        return array(
-            'auto_add_pk' => array('name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ),
-        );
+        return [
+            'auto_add_pk' => ['name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ],
+        ];
     } // getBehaviors()
     /**
      * Method to invalidate the instance pool of all tables related to category     * by a foreign key with ON DELETE CASCADE
@@ -254,7 +254,7 @@ class CategoryTableMap extends TableMap
             CategoryTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -268,7 +268,7 @@ class CategoryTableMap extends TableMap
      */
     public static function populateObjects(DataFetcherInterface $dataFetcher)
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);

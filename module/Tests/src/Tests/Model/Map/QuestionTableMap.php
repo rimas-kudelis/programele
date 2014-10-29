@@ -97,13 +97,13 @@ class QuestionTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Label', 'IdCategory', 'Id', ),
-        self::TYPE_CAMELNAME     => array('label', 'idCategory', 'id', ),
-        self::TYPE_COLNAME       => array(QuestionTableMap::COL_LABEL, QuestionTableMap::COL_ID_CATEGORY, QuestionTableMap::COL_ID, ),
-        self::TYPE_FIELDNAME     => array('label', 'id_category', 'id', ),
-        self::TYPE_NUM           => array(0, 1, 2, )
-    );
+    protected static $fieldNames =  [
+        self::TYPE_PHPNAME       => ['Label', 'IdCategory', 'Id', ],
+        self::TYPE_CAMELNAME     => ['label', 'idCategory', 'id', ],
+        self::TYPE_COLNAME       => [QuestionTableMap::COL_LABEL, QuestionTableMap::COL_ID_CATEGORY, QuestionTableMap::COL_ID, ],
+        self::TYPE_FIELDNAME     => ['label', 'id_category', 'id', ],
+        self::TYPE_NUM           => [0, 1, 2, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
@@ -111,13 +111,13 @@ class QuestionTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Label' => 0, 'IdCategory' => 1, 'Id' => 2, ),
-        self::TYPE_CAMELNAME     => array('label' => 0, 'idCategory' => 1, 'id' => 2, ),
-        self::TYPE_COLNAME       => array(QuestionTableMap::COL_LABEL => 0, QuestionTableMap::COL_ID_CATEGORY => 1, QuestionTableMap::COL_ID => 2, ),
-        self::TYPE_FIELDNAME     => array('label' => 0, 'id_category' => 1, 'id' => 2, ),
-        self::TYPE_NUM           => array(0, 1, 2, )
-    );
+    protected static $fieldKeys =  [
+        self::TYPE_PHPNAME       => ['Label' => 0, 'IdCategory' => 1, 'Id' => 2, ],
+        self::TYPE_CAMELNAME     => ['label' => 0, 'idCategory' => 1, 'id' => 2, ],
+        self::TYPE_COLNAME       => [QuestionTableMap::COL_LABEL => 0, QuestionTableMap::COL_ID_CATEGORY => 1, QuestionTableMap::COL_ID => 2, ],
+        self::TYPE_FIELDNAME     => ['label' => 0, 'id_category' => 1, 'id' => 2, ],
+        self::TYPE_NUM           => [0, 1, 2, ]
+    ];
 
     /**
      * Initialize the table attributes and columns
@@ -146,8 +146,8 @@ class QuestionTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Category', '\\Tests\\Model\\Category', RelationMap::MANY_TO_ONE, array('id_category' => 'id', ), 'CASCADE', 'CASCADE');
-        $this->addRelation('Answer', '\\Tests\\Model\\Answer', RelationMap::ONE_TO_MANY, array('id' => 'id_question', ), 'CASCADE', 'CASCADE', 'Answers');
+        $this->addRelation('Category', '\\Tests\\Model\\Category', RelationMap::MANY_TO_ONE, ['id_category' => 'id', ], 'CASCADE', 'CASCADE');
+        $this->addRelation('Answer', '\\Tests\\Model\\Answer', RelationMap::ONE_TO_MANY, ['id' => 'id_question', ], 'CASCADE', 'CASCADE', 'Answers');
     } // buildRelations()
 
     /**
@@ -158,9 +158,9 @@ class QuestionTableMap extends TableMap
      */
     public function getBehaviors()
     {
-        return array(
-            'auto_add_pk' => array('name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ),
-        );
+        return [
+            'auto_add_pk' => ['name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ],
+        ];
     } // getBehaviors()
     /**
      * Method to invalidate the instance pool of all tables related to question     * by a foreign key with ON DELETE CASCADE
@@ -261,7 +261,7 @@ class QuestionTableMap extends TableMap
             QuestionTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -275,7 +275,7 @@ class QuestionTableMap extends TableMap
      */
     public static function populateObjects(DataFetcherInterface $dataFetcher)
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);

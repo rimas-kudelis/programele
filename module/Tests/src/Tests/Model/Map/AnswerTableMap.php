@@ -97,13 +97,13 @@ class AnswerTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
-    protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Label', 'IdQuestion', 'Id', ),
-        self::TYPE_CAMELNAME     => array('label', 'idQuestion', 'id', ),
-        self::TYPE_COLNAME       => array(AnswerTableMap::COL_LABEL, AnswerTableMap::COL_ID_QUESTION, AnswerTableMap::COL_ID, ),
-        self::TYPE_FIELDNAME     => array('label', 'id_question', 'id', ),
-        self::TYPE_NUM           => array(0, 1, 2, )
-    );
+    protected static $fieldNames =  [
+        self::TYPE_PHPNAME       => ['Label', 'IdQuestion', 'Id', ],
+        self::TYPE_CAMELNAME     => ['label', 'idQuestion', 'id', ],
+        self::TYPE_COLNAME       => [AnswerTableMap::COL_LABEL, AnswerTableMap::COL_ID_QUESTION, AnswerTableMap::COL_ID, ],
+        self::TYPE_FIELDNAME     => ['label', 'id_question', 'id', ],
+        self::TYPE_NUM           => [0, 1, 2, ]
+    ];
 
     /**
      * holds an array of keys for quick access to the fieldnames array
@@ -111,13 +111,13 @@ class AnswerTableMap extends TableMap
      * first dimension keys are the type constants
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
-    protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Label' => 0, 'IdQuestion' => 1, 'Id' => 2, ),
-        self::TYPE_CAMELNAME     => array('label' => 0, 'idQuestion' => 1, 'id' => 2, ),
-        self::TYPE_COLNAME       => array(AnswerTableMap::COL_LABEL => 0, AnswerTableMap::COL_ID_QUESTION => 1, AnswerTableMap::COL_ID => 2, ),
-        self::TYPE_FIELDNAME     => array('label' => 0, 'id_question' => 1, 'id' => 2, ),
-        self::TYPE_NUM           => array(0, 1, 2, )
-    );
+    protected static $fieldKeys =  [
+        self::TYPE_PHPNAME       => ['Label' => 0, 'IdQuestion' => 1, 'Id' => 2, ],
+        self::TYPE_CAMELNAME     => ['label' => 0, 'idQuestion' => 1, 'id' => 2, ],
+        self::TYPE_COLNAME       => [AnswerTableMap::COL_LABEL => 0, AnswerTableMap::COL_ID_QUESTION => 1, AnswerTableMap::COL_ID => 2, ],
+        self::TYPE_FIELDNAME     => ['label' => 0, 'id_question' => 1, 'id' => 2, ],
+        self::TYPE_NUM           => [0, 1, 2, ]
+    ];
 
     /**
      * Initialize the table attributes and columns
@@ -146,7 +146,7 @@ class AnswerTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('Question', '\\Tests\\Model\\Question', RelationMap::MANY_TO_ONE, array('id_question' => 'id', ), 'CASCADE', 'CASCADE');
+        $this->addRelation('Question', '\\Tests\\Model\\Question', RelationMap::MANY_TO_ONE, ['id_question' => 'id', ], 'CASCADE', 'CASCADE');
     } // buildRelations()
 
     /**
@@ -157,9 +157,9 @@ class AnswerTableMap extends TableMap
      */
     public function getBehaviors()
     {
-        return array(
-            'auto_add_pk' => array('name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ),
-        );
+        return [
+            'auto_add_pk' => ['name' => 'id', 'autoIncrement' => 'true', 'type' => 'INTEGER', ],
+        ];
     } // getBehaviors()
 
     /**
@@ -251,7 +251,7 @@ class AnswerTableMap extends TableMap
             AnswerTableMap::addInstanceToPool($obj, $key);
         }
 
-        return array($obj, $col);
+        return [$obj, $col];
     }
 
     /**
@@ -265,7 +265,7 @@ class AnswerTableMap extends TableMap
      */
     public static function populateObjects(DataFetcherInterface $dataFetcher)
     {
-        $results = array();
+        $results = [];
 
         // set the class once to avoid overhead in the loop
         $cls = static::getOMClass(false);

@@ -16,7 +16,6 @@
          */
         public function indexAction()
         {
-
             return new ViewModel();
         }
     }
