@@ -12,18 +12,20 @@
         'router'       => [
             'routes' => [
                 'home' => [
-                    'type'         => 'literal',
-                    'options'      => [
+                    'may_terminate' => true,
+                    'type'          => 'literal',
+                    'options'       => [
                         'route'    => '/',
                         'defaults' => [
                             'controller' => 'Tests\Controller\Index',
                             'action'     => 'index'
                         ]
                     ],
-                    'child_routes' => [
+                    'child_routes'  => [
                         'category' => [
-                            'type'    => 'segment',
-                            'options' => [
+                            'may_terminate' => true,
+                            'type'          => 'segment',
+                            'options'       => [
                                 'route'    => '/category[/:action]',
                                 'defaults' => [
                                     'controller' => '',
@@ -32,8 +34,9 @@
                             ]
                         ],
                         'question' => [
-                            'type'    => 'segment',
-                            'options' => [
+                            'may_terminate' => true,
+                            'type'          => 'segment',
+                            'options'       => [
                                 'route'    => '/question[/:action]',
                                 'defaults' => [
                                     'controller' => '',
