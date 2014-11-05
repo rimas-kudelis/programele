@@ -81,7 +81,7 @@
         public function indexAction()
         {
             $builder = new SuperAnnotationBuilder();
-            $form    = $builder->createForm('Tests\Model\Category');
+            $form    = $builder->createForm('Tests\Model\CategoryForm');
 
             $form->prepare();
 
