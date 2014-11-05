@@ -3,9 +3,24 @@
         "php": ">=5.5",
         "zendframework/zendframework": "*",
         "propel/propel": "~2.0@dev",
-        "doctrine/common": ">=2.1"
+        "doctrine/common": ">=2.1",
+        "momook/propel-zf-form-annotation-behavior": "master-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "4.3.*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "momook/propel-zf-form-annotation-behavior",
+                "version": "master-dev",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/MOMook/propel-zf-form-annotation-behavior",
+                    "reference": "master"
+                }
+            }
+        }
+    ]
 }
