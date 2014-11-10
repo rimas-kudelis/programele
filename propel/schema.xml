@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="tests" namespace="Tests\Model" defaultIdMethod="native">
     <behavior name="auto_add_pk"/>
+    <behavior name="zf_form_annotation"/>
 
     <table name="category" package="Tests.src.Tests.Model">
-        <behavior name="zf_form_annotation"/>
         <column name="title" required="true" type="varchar" size="255"/>
     </table>
     <table name="question" package="Tests.src.Tests.Model">

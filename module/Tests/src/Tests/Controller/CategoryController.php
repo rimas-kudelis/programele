@@ -18,7 +18,7 @@
          */
         public function indexAction()
         {
-            $form = CategoryForm::getForm();
+            $form = CategoryForm::build();
             $form->prepare();
 
             $view = new ViewModel();
