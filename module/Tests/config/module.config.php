@@ -4,7 +4,8 @@
         'controllers'  => [
             'invokables' => [
                 'Tests\Controller\Index'    => 'Tests\Controller\IndexController',
-                'Tests\Controller\Category' => 'Tests\Controller\CategoryController'
+                'Tests\Controller\Category' => 'Tests\Controller\CategoryController',
+                'Tests\Controller\Answer' => 'Tests\Controller\AnswerController',
             ]
         ],
         'router'       => [
@@ -27,6 +28,17 @@
                                 'route'    => 'category[/:action]',
                                 'defaults' => [
                                     'controller' => 'Tests\Controller\Category',
+                                    'action'     => 'index'
+                                ]
+                            ]
+                        ],
+                        'answer' => [
+                            'may_terminate' => true,
+                            'type'          => 'segment',
+                            'options'       => [
+                                'route'    => 'answer[/:action]',
+                                'defaults' => [
+                                    'controller' => 'Tests\Controller\Answer',
                                     'action'     => 'index'
                                 ]
                             ]

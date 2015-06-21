@@ -16,4 +16,5 @@ use Tests\Model\Base\Answer as BaseAnswer;
  */
 class Answer extends BaseAnswer
 {
+
 }

@@ -1,28 +1,20 @@
 <?php
 
-    namespace Tests\Model;
+namespace Tests\Model;
 
-    use Tests\Model\Base\Category as BaseCategory;
-    use Zend\Form\Annotation;
+use Tests\Model\Base\Category as BaseCategory;
 
-    /**
-     * @Annotation\Name("Category")
-     * @Annotation\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
-     */
-    class Category extends BaseCategory
-    {
+/**
+ * Skeleton subclass for representing a row from the 'category' table.
+ *
+ *
+ *
+ * You should add additional methods to this class to meet the
+ * application requirements.  This class will only be generated as
+ * long as it does not already exist in the output directory.
+ *
+ */
+class Category extends BaseCategory
+{
 
-        /**
-         * @Annotation\Exclude()
-         */
-        protected $id;
-
-        /**
-         * @Annotation\Filter({"name":"StringTrim"})
-         * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":255}})
-         * @Annotation\Attributes({"type":"text"})
-         * @Annotation\Options({"label":"Title:"})
-         */
-        protected $title;
-
-    }
+}

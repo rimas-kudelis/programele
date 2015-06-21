@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database name="tests" namespace="Tests\Model" defaultIdMethod="native">
     <behavior name="auto_add_pk"/>
-    <behavior name="zf_form_annotation"/>
+    <behavior name="zf_form_annotation">
+        <parameter name="trim_strings" value="true"/>
+        <parameter name="validate_on_save" value="true"/>
+    </behavior>
 
     <table name="category" package="Tests.src.Tests.Model">
         <column name="title" required="true" type="varchar" size="255"/>
@@ -14,8 +17,11 @@
         </foreign-key>
     </table>
     <table name="answer" package="Tests.src.Tests.Model">
-        <column name="label" required="true" type="longvarchar"/>
-        <column name="id_question" required="true" type="integer"/>
+        <column name="label" required="true" type="longvarchar" size="600" defaultValue="Some Text here" />
+        <column name="id_question" required="true" type="integer" />
+        <column name="date" type="timestamp" />
+        <column name="booleanValue" type="boolean" />
+        <column name="dec" type="decimal" size="10" scale="2" defaultValue="31.955" />
         <foreign-key foreignTable="question" onDelete="cascade" onUpdate="cascade">
             <reference local="id_question" foreign="id"/>
         </foreign-key>

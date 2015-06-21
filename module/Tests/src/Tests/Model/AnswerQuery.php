@@ -17,4 +17,4 @@ use Tests\Model\Base\AnswerQuery as BaseAnswerQuery;
 class AnswerQuery extends BaseAnswerQuery
 {
 
-} // AnswerQuery
+}

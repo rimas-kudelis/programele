@@ -2,42 +2,19 @@
 
 namespace Tests\Model;
 
+use Tests\Model\Base\CategoryForm as BaseCategoryForm;
 
-    use Zend\Form\Annotation;
-    use Zend\Form\Annotation\AnnotationBuilder;
+/**
+ * Skeleton subclass for representing a row from the 'category' table.
+ *
+ *
+ *
+ * You should add additional methods to this class to meet the
+ * application requirements.  This class will only be generated as
+ * long as it does not already exist in the output directory.
+ *
+ */
+class CategoryForm extends BaseCategoryForm
+{
 
-    /**
-     * @Annotation\Name("CategoryForm")
-     * @Annotation\Hydrator("Zend\Stdlib\Hydrator\ObjectProperty")
-     */
-    class CategoryForm
-    {
-
-        /**
-         * @return \Zend\Form\Form
-         */
-        public static function build()
-        {
-            $builder = new AnnotationBuilder();
-            $form    = $builder->createForm(new self);
-
-            return $form;
-        }
-
-        /**
-         * @Annotation\Filter({"name":"StringTrim"})
-         * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":255}})
-         * @Annotation\Attributes({"type":"text"})
-         * @Annotation\Options({"label":"Title:"})
-        */
-        public $title;
-
-        /**
-         * @Annotation\Filter({"name":"StringTrim"})
-         * @Annotation\Validator({"name":"StringLength", "options":{"min":1, "max":255}})
-         * @Annotation\Attributes({"type":"text"})
-         * @Annotation\Options({"label":"Title:"})
-        */
-        public $id;
-
-    }
+}

@@ -17,4 +17,4 @@ use Tests\Model\Base\CategoryQuery as BaseCategoryQuery;
 class CategoryQuery extends BaseCategoryQuery
 {
 
-} // CategoryQuery
+}
